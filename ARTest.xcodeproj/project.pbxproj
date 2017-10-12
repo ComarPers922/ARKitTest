@@ -57,9 +57,9 @@
 			isa = PBXGroup;
 			children = (
 				18EA2C3E1F72064200BFB871 /* AppDelegate.swift */,
-				18EA2C401F72064200BFB871 /* art.scnassets */,
 				18EA2C421F72064200BFB871 /* ViewController.swift */,
 				18EA2C441F72064200BFB871 /* Main.storyboard */,
+				18EA2C401F72064200BFB871 /* art.scnassets */,
 				18EA2C471F72064200BFB871 /* Assets.xcassets */,
 				18EA2C491F72064200BFB871 /* LaunchScreen.storyboard */,
 				18EA2C4C1F72064200BFB871 /* Info.plist */,
@@ -279,6 +279,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FH5Z5UX5UM;
 				INFOPLIST_FILE = ARTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.test.ARTest;
@@ -293,6 +294,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FH5Z5UX5UM;
 				INFOPLIST_FILE = ARTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = net.test.ARTest;

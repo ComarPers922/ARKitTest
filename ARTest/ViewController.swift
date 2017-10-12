@@ -20,14 +20,30 @@ class ViewController: UIViewController, ARSCNViewDelegate {
         // Set the view's delegate
         sceneView.delegate = self
         
-        // Show statistics such as fps and timing information
-        sceneView.showsStatistics = true
-        
         // Create a new scene
-        let scene = SCNScene(named: "art.scnassets/ship.scn")!
+        let scene = SCNScene(named: "art.scnassets/Earth.scn")!
+        //let ship = SCNScene(named: "art.scnassets/ship.scn")!
+        
+        if let earth = scene.rootNode.childNode(withName: "Earth", recursively: true)
+        {
+            let localRotation = SCNAction.customAction(duration: 1, action: { (node, delta) in
+                        let W = Float(cos(0.01 / 2))
+                        let Y = Float(sin(0.01 / 2))
+                        let value = SCNQuaternion(x:0, y:Y, z:0, w:W)
+                        node.localRotate(by: value)
+                })
+            earth.runAction(SCNAction.repeatForever(localRotation))
+            
+            if let ship = scene.rootNode.childNode(withName: "Ship", recursively: true)
+            {
+                ship.runAction(SCNAction.repeatForever(SCNAction.rotateBy(x: 0, y: -0.1, z: 0, duration: 0.33)))
+            }
+        }
         
         // Set the scene to the view
         sceneView.scene = scene
+        
+        sceneView.autoenablesDefaultLighting = true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -54,14 +70,14 @@ class ViewController: UIViewController, ARSCNViewDelegate {
 
     // MARK: - ARSCNViewDelegate
     
-/*
+
     // Override to create and configure nodes for anchors added to the view's session.
     func renderer(_ renderer: SCNSceneRenderer, nodeFor anchor: ARAnchor) -> SCNNode? {
         let node = SCNNode()
-     
+        
         return node
     }
-*/
+
     
     func session(_ session: ARSession, didFailWithError error: Error) {
         // Present an error message to the user
